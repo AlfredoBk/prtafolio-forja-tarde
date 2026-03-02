@@ -1,13 +1,16 @@
 import Image from "next/image";
+import Link from "next/link";
 
 interface Props {
   src: string;
   title: string;
   description: string;
+  href: string;
 }
 
-export default function Card({ src, title, description }: Props) {
+export default function Card({ src, title, description, href}: Props) {
   return (
+    <Link href={href} target="_blank">
     <div className="flex flex-col h-48 w-48 rounded-lg bg-white">
       <div className="flex-1 relative">
         <Image src={src} alt="imagem do projeto" fill />
@@ -17,5 +20,7 @@ export default function Card({ src, title, description }: Props) {
         <p className="text-black">{description}</p>
       </div>
     </div>
+    </Link>
+    
   );
 }
